@@ -1,0 +1,4 @@
+le fichier textadv.py est le bon
+
+pour débloquer les épées allez parler au professeur de la salle 1 puis retournez au hall.
+ensuite dirigez vous vers le toit afin d'ouvrir le parchemin et choisir l'épée qui vous plaira.
