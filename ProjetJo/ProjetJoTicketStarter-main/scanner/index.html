@@ -1,13 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Scaner</title>
-		<script src="index.js"></script>
-		<link rel="stylesheet" href="index.css" />
-	</head>
-	<body>
-		<h1>Scanner de ticket</h1>
-	</body>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JO Tickets - Scanneur de billets</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <header>
+        <h1>JO Tickets - Scanneur de billets</h1>
+    </header>
+    <main>
+        <!-- Zone pour afficher la caméra -->
+        <section id="scanner-section">
+            <h2>Scanner un billet</h2>
+            <div id="qr-reader"></div>
+        </section>
+
+        <!-- Zone pour afficher les informations du billet -->
+        <section id="ticket-info" style="display: none;">
+            <h2>Informations du billet</h2>
+            <p><strong>Nom du supporter :</strong> <span id="supporter-name"></span></p>
+            <p><strong>Place :</strong> <span id="seat-number"></span></p>
+            <p><strong>Match :</strong> <span id="event-name"></span></p>
+            <button onclick="resetScanner()">Scanner un autre billet</button>
+        </section>
+    </main>
+    <script src="index.js"></script>
+</body>
 </html>

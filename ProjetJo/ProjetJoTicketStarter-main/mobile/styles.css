@@ -16,12 +16,20 @@ main {
     padding: 20px;
 }
 
-#scanner-section, #ticket-info {
+.event-item {
     background-color: #fff;
     border: 1px solid #ddd;
-    padding: 20px;
-    margin-bottom: 20px;
+    padding: 15px;
+    margin-bottom: 10px;
     border-radius: 5px;
+}
+
+.event-item h3 {
+    margin: 0;
+}
+
+.event-item p {
+    margin: 5px 0;
 }
 
 button {
@@ -35,4 +43,8 @@ button {
 
 button:hover {
     background-color: #0056b3;
+}
+
+#qr-code {
+    margin: 20px 0;
 }

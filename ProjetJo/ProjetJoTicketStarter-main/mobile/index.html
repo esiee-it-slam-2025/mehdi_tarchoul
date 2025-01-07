@@ -1,9 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>JO Project</title>
-	</head>
-	<body></body>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JO Tickets - Application Mobile</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>JO Tickets</h1>
+        <div id="auth-buttons">
+            <button onclick="showRegisterForm()">S'inscrire</button>
+            <button onclick="showLoginForm()">Se connecter</button>
+        </div>
+    </header>
+    <main>
+        <!-- Formulaire d'inscription -->
+        <section id="register-form" style="display: none;">
+            <h2>Inscription</h2>
+            <form id="register-form-inner">
+                <input type="text" id="username" placeholder="Nom d'utilisateur" required>
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="password" id="password" placeholder="Mot de passe" required>
+                <button type="submit">S'inscrire</button>
+                <button type="button" onclick="hideAuthForms()">Annuler</button>
+            </form>
+        </section>
+
+        <!-- Formulaire de connexion -->
+        <section id="login-form" style="display: none;">
+            <h2>Connexion</h2>
+            <form id="login-form-inner">
+                <input type="text" id="login-username" placeholder="Nom d'utilisateur" required>
+                <input type="password" id="login-password" placeholder="Mot de passe" required>
+                <button type="submit">Se connecter</button>
+                <button type="button" onclick="hideAuthForms()">Annuler</button>
+            </form>
+        </section>
+
+        <!-- Liste des matchs -->
+        <section id="event-list">
+            <!-- La liste des matchs sera affichée ici -->
+        </section>
+
+        <!-- Formulaire d'achat de billet -->
+        <section id="ticket-form" style="display: none;">
+            <h2>Acheter un billet</h2>
+            <form id="ticket-form-inner">
+                <select id="category">
+                    <option value="Silver">Silver (100€)</option>
+                    <option value="Gold">Gold (200€)</option>
+                    <option value="Platinium">Platinium (300€)</option>
+                </select>
+                <button type="submit">Acheter</button>
+                <button type="button" onclick="hideTicketForm()">Annuler</button>
+            </form>
+        </section>
+
+        <!-- Section QR Code -->
+        <section id="qr-code-section" style="display: none;">
+            <h2>Votre billet</h2>
+            <div id="qr-code"></div>
+            <button id="download-qr">Télécharger le QR Code</button>
+            <button onclick="hideQRCodeSection()">Retour aux matchs</button>
+        </section>
+    </main>
+    <script src="scripts.js"></script>
+</body>
 </html>
