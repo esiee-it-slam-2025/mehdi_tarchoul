@@ -15,7 +15,7 @@ INSTALLED_APPS = [
     # On explicite l"usage de notre application pour que les templates
     # soient détectés automatiquement par Django
     "corsheaders",
-    "mainapp.apps.MainappConfig",
+    'mainapp.apps.MainappConfig',
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -62,12 +62,11 @@ TEMPLATES = [
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        # !!! A remplacer avec vos informations de connexion !!!
-        'NAME': "jo_project_starter",
-        "USER": "root",
-        "PASSWORD": "",
-        "HOST": "127.0.0.1",
-        "PORT": "",
+        "NAME": "projet_joticket",
+        'USER': 'admin',                        
+        'PASSWORD': '',                        
+        'HOST': 'localhost',                   
+        'PORT': '3306',
     }
 }
 
