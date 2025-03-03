@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JO Tickets - Scanneur de billets</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="scanner.css">
+    <script src="https://unpkg.com/html5-qrcode"></script>
 </head>
 <body>
     <header>
@@ -14,7 +15,9 @@
         <!-- Zone pour afficher la caméra -->
         <section id="scanner-section">
             <h2>Scanner un billet</h2>
-            <div id="qr-reader"></div>
+            <div id="qr-reader" style="width: 500px;"></div>
+            <input type="file" id="qr-input-file" accept="image/*" style="display: none;">
+            <button onclick="document.getElementById('qr-input-file').click()">Upload QR Code</button>
         </section>
 
         <!-- Zone pour afficher les informations du billet -->
@@ -26,6 +29,6 @@
             <button onclick="resetScanner()">Scanner un autre billet</button>
         </section>
     </main>
-    <script src="index.js"></script>
+    <script src="scanner.js"></script>
 </body>
 </html>

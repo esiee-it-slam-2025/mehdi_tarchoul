@@ -1,0 +1,126 @@
+/* Variables de thème */
+:root {
+    --primary-color: #0033A0;      /* Bleu JO 2024 */
+    --secondary-color: #FFD700;    /* Doré JO 2024 */
+    --white: #ffffff;
+    --text-color: #333333;
+}
+
+/* Reset et base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    /* Fond en dégradé similaire au mobile.css */
+    background: linear-gradient(135deg, rgba(0,51,160,0.15), rgba(255,215,0,0.15));
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    color: var(--white);
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    animation: slideDown 0.8s ease-out;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Main */
+main {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* Sections pour scanner et infos billet */
+#scanner-section,
+#ticket-info {
+    background: var(--white);
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Zone du lecteur QR */
+#qr-reader {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto 20px auto;
+}
+
+/* Cache le champ d'upload */
+input[type="file"] {
+    display: none;
+}
+
+/* Boutons */
+button {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    font-size: 1rem;
+}
+
+button:hover {
+    background-color: var(--secondary-color);
+    transform: scale(1.05);
+}
+
+/* Titres dans la section infos billet */
+#ticket-info h2 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+#ticket-info p {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+
+@font-face {
+    font-family: 'JoFont';
+    src: url('/mobile/assets/Paris2024.ttf') format('truetype');
+}

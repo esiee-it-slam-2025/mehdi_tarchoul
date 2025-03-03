@@ -1,0 +1,52 @@
+{% extends "_base.html" %}
+
+{% block content %}
+<h1>Administration des événements</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Équipe à domicile</th>
+            <th>Équipe à l'extérieur</th>
+            <th>Stade</th>
+            <th>Date</th>
+            <th>Vainqueur</th>
+            <th>Phase</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for event in events %}
+        <tr>
+            <td>{{ event.team_home }}</td>
+            <td>{{ event.team_away }}</td>
+            <td>
+                <select name="stadium" form="form-{{ event.id }}">
+                    <option value="">Sélectionnez un stade</option>
+                    {% for stadium in stadiums %}
+                    <option value="{{ stadium.id }}" {% if event.stadium == stadium %}selected{% endif %}>{{ stadium.name }}</option>
+                    {% endfor %}
+                </select>
+            </td>
+            <td>
+                <input type="datetime-local" name="start" value="{{ event.start|date:'Y-m-d\TH:i' }}" form="form-{{ event.id }}">
+            </td>
+            <td>{{ event.winner }}</td>
+            <td>{{ event.stage }}</td>
+            <td>
+                <form method="post" action="{% url 'admin_events' %}" id="form-{{ event.id }}">
+                    {% csrf_token %}
+                    <input type="hidden" name="event_id" value="{{ event.id }}">
+                    <select name="winner">
+                        <option value="">Sélectionnez un vainqueur</option>
+                        <option value="{{ event.team_home.name }}" {% if event.winner == event.team_home %}selected{% endif %}>{{ event.team_home.name }}</option>
+                        <option value="{{ event.team_away.name }}" {% if event.winner == event.team_away %}selected{% endif %}>{{ event.team_away.name }}</option>
+                    </select>
+                    <button type="submit">Mettre à jour</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -3,11 +3,11 @@ from ..models.team import Team
 from ..models.stadium import Stadium
 from ..models.event import Event
 from ..models.ticket import Ticket
-import logging
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_exempt
 import json
+import logging
 
 
 logger = logging.getLogger(__name__)
@@ -145,13 +145,13 @@ def check_ticket(request, ticket_id):
 
             # Récupérer les informations associées au billet
             event = ticket.event
-            supporter = ticket.supporter  # Supposons que vous avez un champ "supporter" dans le modèle Ticket
+            supporter = ticket.supporter_name  # Supposons que vous avez un champ "supporter" dans le modèle Ticket
 
             # Renvoyer les informations du billet
             return JsonResponse({
                 'valid': True,
-                'supporter_name': supporter.username,  # Ou tout autre champ contenant le nom du supporter
-                'seat_number': ticket.seat_number,  # Supposons que vous avez un champ "seat_number" dans le modèle Ticket
+                'supporter_name': supporter,  # Ou tout autre champ contenant le nom du supporter
+                'seat_number': ticket.category,  # Supposons que vous avez un champ "seat_number" dans le modèle Ticket
                 'event_name': f"{event.team_home} vs {event.team_away}",  # Nom du match
             })
         except Ticket.DoesNotExist:

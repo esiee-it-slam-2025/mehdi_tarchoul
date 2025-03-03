@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JO Tickets - Application Mobile</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="mobile.css">
     <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
 </head>
 <body>
@@ -13,6 +13,9 @@
         <div id="auth-buttons">
             <button onclick="showRegisterForm()">S'inscrire</button>
             <button onclick="showLoginForm()">Se connecter</button>
+        </div>
+        <div id="logout-container" style="display: none;">
+            <button onclick="logout()">Se déconnecter</button>
         </div>
     </header>
     <main>
@@ -66,6 +69,6 @@
             <button onclick="hideQRCodeSection()">Retour aux matchs</button>
         </section>
     </main>
-    <script src="scripts.js"></script>
+    <script src="mobile.js"></script>
 </body>
 </html>

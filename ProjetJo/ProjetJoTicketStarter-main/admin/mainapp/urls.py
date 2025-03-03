@@ -1,9 +1,10 @@
-from django.urls import path
 from django.contrib import admin
+from django.urls import path
 from .views import team_list, stadium_list, event_list, ticket_list, register, login_view, buy_ticket, check_ticket
+from .views.admin_view import admin_events
 
 urlpatterns = (
-    path('admin/', admin.site.urls),
+    path('admin_view/events/', admin_events, name='admin_events'),
     path("api/stadiums", stadium_list),
     path('api/teams/', team_list, name='team_list'),
     path('api/stadiums/', stadium_list, name='stadium_list'),

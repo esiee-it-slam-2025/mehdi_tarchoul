@@ -1,0 +1,186 @@
+/* Définition des variables pour faciliter les modifications */
+:root {
+    --primary-color: #0033A0;      /* Bleu JO 2024 */
+    --secondary-color: #FFD700;    /* Doré JO 2024 */
+    --accent-color: #FF5722;       /* Pour certains détails */
+    --text-color: #333333;
+    --white: #ffffff;
+}
+
+/* Reset global et configuration de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    /* Fond général avec un dégradé animé */
+    background: linear-gradient(135deg, rgba(0,51,160,0.15), rgba(255,215,0,0.15));
+    animation: backgroundShift 15s ease infinite;
+    color: var(--text-color);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+@keyframes backgroundShift {
+    0% { background: linear-gradient(135deg, rgba(0,51,160,0.15), rgba(255,215,0,0.15)); }
+    50% { background: linear-gradient(135deg, rgba(0,51,160,0.25), rgba(255,215,0,0.25)); }
+    100% { background: linear-gradient(135deg, rgba(0,51,160,0.15), rgba(255,215,0,0.15)); }
+}
+
+/* Header */
+header {
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    color: var(--white);
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    animation: slideDown 0.8s ease-out;
+}
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Boutons d'authentification */
+#auth-buttons button,
+#logout-container button {
+    margin: 0 10px;
+    background-color: var(--white);
+    color: var(--primary-color);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+#auth-buttons button:hover,
+#logout-container button:hover {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    transform: scale(1.05);
+}
+
+/* Conteneur principal centré */
+main {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* Cards d'événement */
+.event-item {
+    background: var(--white);
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    /* Les cards démarrent cachées pour l'animation */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.event-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.event-item h3 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+.event-item p {
+    font-size: 1rem;
+    margin: 8px 0;
+}
+
+/* Boutons généraux */
+button {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    font-size: 1rem;
+}
+button:hover {
+    background-color: var(--secondary-color);
+    transform: scale(1.05);
+}
+
+/* Formulaires */
+form {
+    margin-top: 20px;
+    animation: fadeIn 0.8s ease-out;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="datetime-local"],
+select {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 8px rgba(0,51,160,0.3);
+}
+
+/* Section QR Code */
+#qr-code-section {
+    text-align: center;
+    animation: fadeIn 1s ease-out;
+}
+#qr-code {
+    margin: 30px auto;
+    padding: 20px;
+    background: var(--white);
+    border: 2px dashed var(--primary-color);
+    border-radius: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    .event-item h3 {
+        font-size: 1.5rem;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+@font-face {
+    font-family: 'JoFont';
+    src: url('/mobile/assets/Paris2024.ttf') format('truetype');
+}
