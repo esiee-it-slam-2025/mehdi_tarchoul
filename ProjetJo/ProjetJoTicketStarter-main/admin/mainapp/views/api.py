@@ -145,12 +145,12 @@ def check_ticket(request, ticket_id):
 
             # Récupérer les informations associées au billet
             event = ticket.event
-            supporter = ticket.supporter_name  # Supposons que vous avez un champ "supporter" dans le modèle Ticket
+            supporter = ticket.supporter_name  # Pour le champ "supporter" dans le modèle Ticket
 
             # Renvoyer les informations du billet
             return JsonResponse({
                 'valid': True,
-                'supporter_name': supporter,  # Ou tout autre champ contenant le nom du supporter
+                'supporter_name': supporter,  
                 'seat_number': ticket.category,  # Supposons que vous avez un champ "seat_number" dans le modèle Ticket
                 'event_name': f"{event.team_home} vs {event.team_away}",  # Nom du match
             })
@@ -158,5 +158,6 @@ def check_ticket(request, ticket_id):
             return JsonResponse({'valid': False, 'error': 'Billet non trouvé'}, status=404)
         except Exception as e:
             return JsonResponse({'valid': False, 'error': str(e)}, status=500)
+            
     else:
         return JsonResponse({'error': 'Méthode non autorisée'}, status=405)
